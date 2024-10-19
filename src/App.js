@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { QuestionsProvider } from './contexts/questionsContext';
+import Card from './components/card';
+import { useState } from 'react';
+import { Result } from './components/Result';
 
 function App() {
+  let [log, setLog] = useState([]);
+
+  let flag = true;
+  if(log.length === 10){
+    flag = false
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QuestionsProvider>
+    {flag ? 
+    <div className='rounded' style={{width:'50rem', height:'30rem', backgroundColor:'#6a994e', marginTop:'10rem', marginLeft:'25rem'}}>
+      <Card log={log} setLog={setLog}/>
+    </div> 
+    : 
+    <div className='rounded p-4' style={{width:'50rem', height:'130rem', backgroundColor:'#6a994e', marginTop:'10rem', marginLeft:'25rem'}}>
+    <Result log={log} setLog={setLog}/> 
+    </div>}
+    </QuestionsProvider>
   );
 }
 
