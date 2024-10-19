@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 
-export default function Timer({time, setLog, selected, log}){
-    const [remTime, setRemTime] = useState(time);
+export default function Timer({setLog, selected, log}){
+    const [remTime, setRemTime] = useState(10000);
 
 
     useEffect(() => {
+        let time = 10000;
         setRemTime(time)
         const timer = setInterval(() => {
-            setRemTime((time) => {
-                if(time > 0){
-                    return time - 10;
+            setRemTime((prevTime) => {
+                if(prevTime > 0){
+                    return prevTime - 10;
                 }
                 else{
                     clearInterval(timer)
@@ -20,13 +21,14 @@ export default function Timer({time, setLog, selected, log}){
         return () => clearInterval(timer)
     }, [log])
 
+    
     useEffect(() => {
         if(remTime <= 0){
         setLog((prev) => [...prev, selected])
         }
-    }, [remTime])
+    }, [remTime, selected, setLog])
 
-    let length = (remTime / time)
+    let length = (remTime / 10000)
 
     return (
         <div className="">

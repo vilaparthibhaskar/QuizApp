@@ -5,7 +5,6 @@ import Timer from "./Timer";
 export default function Card({log, setLog}){
     const {questions} = useContext(QuestionsContext);
     const [selected, setSelected] = useState(-1);
-    console.log(selected);
 
     useEffect(() => {
         setSelected(-1)
@@ -29,7 +28,7 @@ export default function Card({log, setLog}){
     return (
         <div className="container">
             <div className="row">
-                <Timer time={10000} setLog={setLog} selected={selected} log={log}/>
+                <Timer setLog={setLog} selected={selected} log={log}/>
             </div>
             <div className="row fw-bold fw-italic mb-2">
                 {questions[ind]['question']}

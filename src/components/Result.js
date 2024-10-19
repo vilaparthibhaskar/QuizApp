@@ -32,22 +32,22 @@ export function Result({log, setLog}){
                 <h1>Results</h1>
             </div>
             <div className="row d-flex justify-content-center mb-2">
-                <img src={result} style={{width:'10rem', height:'8rem'}}></img>
+                <img src={result} style={{width:'10rem', height:'8rem'}} alt='result'></img>
             </div>
             <div className="row">
                 <div className="col-4 text-center">
                     <h4>UnAttempted</h4>
-                    <img src={UnAttempted_img} style={{width:'10rem', height:'8rem'}}></img>
+                    <img src={UnAttempted_img} style={{width:'10rem', height:'8rem'}} alt='unattempted'></img>
                     <h4 className='my-2'>{UnAttempted}</h4>
                 </div>
                 <div className="col-4 text-center">
                 <h4>Correct</h4>
-                <img src={correct_img} style={{width:'10rem', height:'8rem'}}></img>
+                <img src={correct_img} style={{width:'10rem', height:'8rem'}} alt='correct'></img>
                 <h4 className='my-2'>{correct}</h4>
                 </div>
                 <div className='col-4 text-center'>
                 <h4>Wrong</h4>
-                <img src={wrong_img} style={{width:'10rem', height:'8rem'}}></img>
+                <img src={wrong_img} style={{width:'10rem', height:'8rem'}} alt='wrong'></img>
                     <h4 className='my-2'>{10 - UnAttempted - correct}</h4>
                 </div>
             </div>
